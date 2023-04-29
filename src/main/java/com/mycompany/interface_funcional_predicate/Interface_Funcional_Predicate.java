@@ -27,12 +27,14 @@ public class Interface_Funcional_Predicate {
         
         
         //boolean dis = pe.isDisponible();
-        Predicate<Puertos> pre = p -> p.isDisponible();
-        
+       // Predicate<Puertos> preF = p -> p.isDisponible();
+        Predicate<Puertos> menor1 = m -> m.getNumeroPuerto() < 9000;
+        Predicate<Puertos> menor2 = m2 -> m2.getNumeroPuerto() > 1000;
+        Predicate<Puertos> igual = menor1.and(menor2);
         //System.out.println(dis);
  
         for(Puertos p : lista){
-            if(pre.test(p)){
+            if(igual.test(p)){
             //if(p.isDisponible()){
                 System.out.println(p.toString());
             }
